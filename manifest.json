@@ -1,16 +1,22 @@
 {
+  "manifest_version": 3,
   "name": "Wordster",
-  "description": "Collect words on double click",
   "version": "1.0",
-  "manifest_version": 2,
-  "action": {
-    "default_popup": "hello.html"
+  "description": "Collects double-clicked words and stores them",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
   },
-   "background": {
-        "scripts": ["background.js"],
-        "persistent": false
-    },
-  "browser_action": {
-         "title": "Wordster"
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
     }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "landing.html"
+  }
 }
