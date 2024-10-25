@@ -2,14 +2,17 @@
 <html>
 <head>
   <title>Word Collector</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Word Collector</h1>
-    <p>Double-click on words to collect them. View your collection on the new tab page.</p>
-    <button id="openDashboard">Open Dashboard</button>
-  </div>
+  <h3>Collected Words</h3>
+  <div id="wordList"></div>
+  <section id="buttonSection"> 
+    <button id="clearWords" class="btn">Clear Words</button>
+    <button id="openMain" class="btn"> See all</button> <!-- write script for opening-->
+    <button id="download" class="btn"> Download</button> <!-- write script for download-->
+  </section>
+ 
   <script src="popup.js"></script>
 </body>
 </html>
