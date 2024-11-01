@@ -1,22 +1,30 @@
 {
-  "manifest_version": 3,
-  "name": "Wordster",
-  "version": "1.0",
-  "description": "Collects double-clicked words and stores them",
-  "permissions": ["storage"],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
+    "manifest_version": 3,
+    "name": "Wordster",
+    "description": "Collects words on double-click and stores them.",
+    "version": "1.0",
+    "permissions": [
+      "storage",
+      "activeTab",
+      "contextMenus",
+      "scripting"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/icon16.png",
+        "32": "images/icon32.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+      }
     }
-  ],
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "chrome_url_overrides": {
-    "newtab": "landing.html"
   }
-}
